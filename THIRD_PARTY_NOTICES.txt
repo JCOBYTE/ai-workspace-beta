@@ -10294,3 +10294,7 @@ DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN AC
 ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
 The Apache-2.0 text is above, with the packages that ship it.
+
+===== llama.cpp: modified by AI Workspace =====
+The bundled llama.cpp is the upstream release b11960 (MIT), with this change: b11960 + #31360 (constexpr removed, unary bf16).
+- libggml-metal.0.28.0.dylib: constexpr removed from the two bfloat4 ggml_metal_unary_cast specializations in the embedded Metal 'unary' source, which the macOS 14 and 15 Metal compilers reject; the same change as upstream ggml-org/llama.cpp c9daee149d606adc30b4c5b7a3254697c9771e2b (#31360, first released in b11985). Each `constexpr` was replaced by spaces of the same length. sha256 before 8b3bb1b49678c8c65d35f64dbb991bc8280608676a0b9a0a8c3acd533ec1437e, after 15ef666c86041ef36a7409cc815a646091df16d8ce470f6a06e2daf46389903e (before signing).

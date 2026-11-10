@@ -22,7 +22,7 @@ If someone you trust sent you a longer command with a hash in it, use theirs ins
 which protects you even if this page has been changed. This version's is:
 
 ```sh
-f=$(mktemp) && curl -fsSL https://github.com/JCOBYTE/ai-workspace-beta/releases/download/v2.0.0-beta.1/install.sh -o "$f" && if [ "$(shasum -a 256 "$f" | cut -d" " -f1)" = "166d5b8ba12894830d13a95e66143c556a652da223afeab37a4e115f8836a93a" ]; then sh "$f"; else echo "This is not the installer you were given. Nothing was run." >&2; fi
+f=$(mktemp) && curl -fsSL https://github.com/JCOBYTE/ai-workspace-beta/releases/download/v2.0.0-beta.2/install.sh -o "$f" && if [ "$(shasum -a 256 "$f" | cut -d" " -f1)" = "0ee51edca33f6c57f98e82dc89d2a2b94a347a06af0955a8877b79cc70e45802" ]; then sh "$f"; else echo "This is not the installer you were given. Nothing was run." >&2; fi
 ```
 
 Want to read the script first? Download it, read it, then run that same file with `sh`, because the command above fetches it again. It
@@ -88,6 +88,7 @@ version already updated, and it will say so.
 - AI models are not included. You choose and download them in the app.
 - Updates are by running the install command again. The app does not update itself in this beta.
 - Hermes, an optional agent, needs a model offering at least 64,000 tokens. Small models such as Qwen3 1.7B stop at 40,960, so they can't run it. The one model tested needs about 13.4 GiB, on 24 GB of memory.
+- The built-in assistant needs a model context of at least 8,192 tokens, the default: its own instructions and tools take about 4,000 to 5,500, and the rest is room for your message and its reply. With less set for a model, its chats can't start, and the app warns when the model loads and says how far to raise it. The figure it names can be higher, because it leaves room for a full-length reply; 8,192 is enough to start.
 
 ## Terms and notices
 
